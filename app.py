@@ -3,13 +3,13 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI(
-    api_key= os.getenv('OPENAI_API_KEY'),  # 替换成真实DashScope的API_KEY
+    api_key= os.getenv('QWENKEY'),  # 替换成真实DashScope的API_KEY
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",  # 填写DashScope服务endpoint
 )
 
 def streamResult():
     completion = client.chat.completions.create(
-        model="qwen-max",
+        model="qwen-plus",
         messages=[
             {
                 'role': 'system',
@@ -32,7 +32,7 @@ def streamResult():
 
 def simpleResult():
     completion = client.chat.completions.create(
-        model="qwen-max",
+        model="qwen-long",
         messages=[
             {
                 'role': 'system',
